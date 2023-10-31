@@ -525,7 +525,6 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                           0.0, 0.0, 0.0, 16.0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
-                                          Function() _navigate = () {};
                                           GoRouter.of(context)
                                               .prepareAuthEvent();
                                           if (_model.passwordController.text !=
@@ -565,32 +564,27 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                     .passwordController.text,
                                               ));
 
-                                          _navigate = () => context.goNamedAuth(
-                                              'Inicio', context.mounted);
-                                          if (_model.emailAddressController
-                                                  .text ==
-                                              currentUserEmail) {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return AlertDialog(
-                                                  title: Text('Alerta'),
-                                                  content: Text(
-                                                      'El correo ${_model.emailAddressController.text} ya se encuentra registrado, ingrese uno distinto.'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                );
-                                              },
-                                            );
-                                          }
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return AlertDialog(
+                                                title: Text('Crear Cuenta'),
+                                                content: Text(
+                                                    'Se ha creado correctamente su cuenta'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
 
-                                          _navigate();
+                                          context.goNamedAuth(
+                                              'Home', context.mounted);
                                         },
                                         text: 'CREAR CUENTA',
                                         options: FFButtonOptions(

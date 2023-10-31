@@ -5,25 +5,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'inicio_model.dart';
-export 'inicio_model.dart';
+import 'home_model.dart';
+export 'home_model.dart';
 
-class InicioWidget extends StatefulWidget {
-  const InicioWidget({Key? key}) : super(key: key);
+class HomeWidget extends StatefulWidget {
+  const HomeWidget({Key? key}) : super(key: key);
 
   @override
-  _InicioWidgetState createState() => _InicioWidgetState();
+  _HomeWidgetState createState() => _HomeWidgetState();
 }
 
-class _InicioWidgetState extends State<InicioWidget> {
-  late InicioModel _model;
+class _HomeWidgetState extends State<HomeWidget> {
+  late HomeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => InicioModel());
+    _model = createModel(context, () => HomeModel());
   }
 
   @override
