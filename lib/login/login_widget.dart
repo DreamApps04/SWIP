@@ -310,7 +310,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.pushNamed('ForgotPassword1');
+                                      context.pushNamed('ForgotPassword');
                                     },
                                     child: RichText(
                                       textScaleFactor: MediaQuery.of(context)
@@ -357,7 +357,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       }
 
                                       context.goNamedAuth(
-                                          'Inicio', context.mounted);
+                                          'Home', context.mounted);
                                     },
                                     text: 'INGRESAR',
                                     options: FFButtonOptions(

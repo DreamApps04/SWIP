@@ -79,13 +79,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? InicioWidget() : LoginWidget(),
+          appStateNotifier.loggedIn ? HomeWidget() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? InicioWidget() : LoginWidget(),
+              appStateNotifier.loggedIn ? HomeWidget() : LoginWidget(),
         ),
         FFRoute(
           name: 'Login',
@@ -93,9 +93,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => LoginWidget(),
         ),
         FFRoute(
-          name: 'Inicio',
-          path: '/inicio',
-          builder: (context, params) => InicioWidget(),
+          name: 'Home',
+          path: '/home',
+          builder: (context, params) => HomeWidget(),
         ),
         FFRoute(
           name: 'CreateAccount',
@@ -103,14 +103,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => CreateAccountWidget(),
         ),
         FFRoute(
-          name: 'ForgotPassword1',
-          path: '/forgotPassword1',
-          builder: (context, params) => ForgotPassword1Widget(),
+          name: 'ForgotPassword',
+          path: '/forgotPassword',
+          builder: (context, params) => ForgotPasswordWidget(),
         ),
         FFRoute(
-          name: 'ForgotPassword2',
-          path: '/forgotPassword2',
-          builder: (context, params) => ForgotPassword2Widget(),
+          name: 'password',
+          path: '/password',
+          builder: (context, params) => PasswordWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
