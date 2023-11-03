@@ -79,13 +79,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomeWidget() : LoginWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomeWidget() : LoginWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
         ),
         FFRoute(
           name: 'Login',
@@ -95,7 +95,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Home',
           path: '/home',
-          builder: (context, params) => HomeWidget(),
+          builder: (context, params) =>
+              params.isEmpty ? NavBarPage(initialPage: 'Home') : HomeWidget(),
         ),
         FFRoute(
           name: 'CreateAccount',
@@ -108,9 +109,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ForgotPasswordWidget(),
         ),
         FFRoute(
-          name: 'password',
-          path: '/password',
-          builder: (context, params) => PasswordWidget(),
+          name: 'Ahorros',
+          path: '/ahorros',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Ahorros')
+              : AhorrosWidget(),
+        ),
+        FFRoute(
+          name: 'Presupuestos',
+          path: '/presupuestos',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Presupuestos')
+              : PresupuestosWidget(
+                  txtNumQuincena:
+                      params.getParam('txtNumQuincena', ParamType.int),
+                ),
+        ),
+        FFRoute(
+          name: 'Credito',
+          path: '/credito',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Credito')
+              : CreditoWidget(
+                  txtNumQuincena:
+                      params.getParam('txtNumQuincena', ParamType.int),
+                ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
