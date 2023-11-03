@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -73,7 +74,11 @@ class _HomeWidgetState extends State<HomeWidget> {
             children: [
               FFButtonWidget(
                 onPressed: () async {
-                  context.pushNamed('Login');
+                  GoRouter.of(context).prepareAuthEvent();
+                  await authManager.signOut();
+                  GoRouter.of(context).clearRedirectLocation();
+
+                  context.pushNamedAuth('Login', context.mounted);
                 },
                 text: 'Volver al login',
                 options: FFButtonOptions(
