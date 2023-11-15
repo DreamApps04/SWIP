@@ -129,9 +129,11 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'Home': HomeWidget(),
-      'Ahorros': AhorrosWidget(),
+      'Ingresos': IngresosWidget(),
       'Presupuestos': PresupuestosWidget(),
       'Credito': CreditoWidget(),
+      'Ahorro': AhorroWidget(),
+      'Reportes': ReportesWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -164,14 +166,14 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: FaIcon(
-              FontAwesomeIcons.donate,
+              FontAwesomeIcons.moneyBillAlt,
               size: 22.0,
             ),
             activeIcon: FaIcon(
-              FontAwesomeIcons.donate,
+              FontAwesomeIcons.moneyBill,
               size: 26.0,
             ),
-            label: 'Home',
+            label: 'Ingresos',
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -196,6 +198,30 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 26.0,
             ),
             label: 'Crédito',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.savings,
+              size: 22.0,
+            ),
+            activeIcon: Icon(
+              Icons.savings,
+              size: 26.0,
+            ),
+            label: 'Ahorro',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.file_open,
+              size: 26.0,
+            ),
+            activeIcon: Icon(
+              Icons.file_open_rounded,
+              size: 26.0,
+            ),
+            label: 'Reportes',
             tooltip: '',
           )
         ],

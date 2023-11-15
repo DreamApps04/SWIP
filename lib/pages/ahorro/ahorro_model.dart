@@ -1,27 +1,26 @@
-import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'ahorros_widget.dart' show AhorrosWidget;
-import 'package:cached_network_image/cached_network_image.dart';
+import 'ahorro_widget.dart' show AhorroWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class AhorrosModel extends FlutterFlowModel<AhorrosWidget> {
+class AhorroModel extends FlutterFlowModel<AhorroWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for txtCuenta widget.
-  FocusNode? txtCuentaFocusNode;
-  TextEditingController? txtCuentaController;
-  String? Function(BuildContext, String?)? txtCuentaControllerValidator;
-  // State field(s) for txtDescripcion widget.
-  FocusNode? txtDescripcionFocusNode;
-  TextEditingController? txtDescripcionController;
-  String? Function(BuildContext, String?)? txtDescripcionControllerValidator;
+  // State field(s) for txtNomAhorro widget.
+  FocusNode? txtNomAhorroFocusNode;
+  TextEditingController? txtNomAhorroController;
+  String? Function(BuildContext, String?)? txtNomAhorroControllerValidator;
+  // State field(s) for txtDescAhorro widget.
+  FocusNode? txtDescAhorroFocusNode;
+  TextEditingController? txtDescAhorroController;
+  String? Function(BuildContext, String?)? txtDescAhorroControllerValidator;
   // State field(s) for txtMonto widget.
   FocusNode? txtMontoFocusNode;
   TextEditingController? txtMontoController;
@@ -33,11 +32,11 @@ class AhorrosModel extends FlutterFlowModel<AhorrosWidget> {
 
   void dispose() {
     unfocusNode.dispose();
-    txtCuentaFocusNode?.dispose();
-    txtCuentaController?.dispose();
+    txtNomAhorroFocusNode?.dispose();
+    txtNomAhorroController?.dispose();
 
-    txtDescripcionFocusNode?.dispose();
-    txtDescripcionController?.dispose();
+    txtDescAhorroFocusNode?.dispose();
+    txtDescAhorroController?.dispose();
 
     txtMontoFocusNode?.dispose();
     txtMontoController?.dispose();

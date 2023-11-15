@@ -109,13 +109,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ForgotPasswordWidget(),
         ),
         FFRoute(
-          name: 'Ahorros',
-          path: '/ahorros',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'Ahorros')
-              : AhorrosWidget(),
-        ),
-        FFRoute(
           name: 'Presupuestos',
           path: '/presupuestos',
           builder: (context, params) => params.isEmpty
@@ -131,6 +124,40 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'Credito')
               : CreditoWidget(
+                  txtNumQuincena:
+                      params.getParam('txtNumQuincena', ParamType.int),
+                ),
+        ),
+        FFRoute(
+          name: 'Ingresos',
+          path: '/ingresos',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Ingresos')
+              : IngresosWidget(),
+        ),
+        FFRoute(
+          name: 'Home2',
+          path: '/home2',
+          builder: (context, params) => Home2Widget(),
+        ),
+        FFRoute(
+          name: 'Reportes',
+          path: '/reportes',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Reportes')
+              : ReportesWidget(),
+        ),
+        FFRoute(
+          name: 'Reportes2',
+          path: '/reportes2',
+          builder: (context, params) => Reportes2Widget(),
+        ),
+        FFRoute(
+          name: 'Ahorro',
+          path: '/ahorro',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Ahorro')
+              : AhorroWidget(
                   txtNumQuincena:
                       params.getParam('txtNumQuincena', ParamType.int),
                 ),
@@ -313,14 +340,13 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
-                      ),
+              ? Container(
+                  color: Color(0xFF041023),
+                  child: Center(
+                    child: Image.asset(
+                      'assets/images/Group_3.png',
+                      width: MediaQuery.sizeOf(context).width * 0.3,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 )
