@@ -50,9 +50,9 @@ class _Home2WidgetState extends State<Home2Widget> {
     }
 
     final chartPieChartColorsList = [
-      Color(0xFF8F46E9),
-      Color(0xFF6F28CB),
-      Color(0xFF2536A4)
+      Color(0xFF1FC341),
+      Color(0xFFD8B13B),
+      Color(0xFF2858CB)
     ];
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus

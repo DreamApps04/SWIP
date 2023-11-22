@@ -701,7 +701,10 @@ class _IngresosWidgetState extends State<IngresosWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
-                                                  'Quincena#',
+                                                  'Quincena ${valueOrDefault<String>(
+                                                    _model.dropQuincenaValue,
+                                                    '1',
+                                                  )}',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -753,7 +756,18 @@ class _IngresosWidgetState extends State<IngresosWidget> {
                                                 .where(
                                                   'numQuincena',
                                                   isEqualTo:
-                                                      _model.dropQuincenaValue,
+                                                      valueOrDefault<String>(
+                                                    _model.dropQuincenaValue,
+                                                    '1',
+                                                  ),
+                                                )
+                                                .where(
+                                                  'mesIngreso',
+                                                  isEqualTo:
+                                                      valueOrDefault<String>(
+                                                    _model.dropMesValue,
+                                                    'Enero',
+                                                  ),
                                                 ),
                                       ),
                                       builder: (context, snapshot) {
